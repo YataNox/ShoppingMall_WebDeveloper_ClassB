@@ -213,7 +213,7 @@ from product where bestyn='y' order by indate desc)
 where rownum <= 4;
 
 create or replace view new_pro_view
-as
+as 
 select * from(
 select rownum, pseq, name, price2, image
 from product where useyn='y' order by indate desc)
@@ -230,4 +230,4 @@ select * from order_view;
 select * from best_pro_view;
 select * from new_pro_view;
 select * from qna;
-
+select * from address;
