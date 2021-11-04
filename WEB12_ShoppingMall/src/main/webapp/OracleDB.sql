@@ -133,7 +133,7 @@ create table qna(
 );
 
 drop sequence qna_seq;
-create sequence qnal_seq start with 1 increment by 1;
+create sequence qna_seq start with 1 increment by 1;
 
 
 /* Insert Recode */
@@ -219,5 +219,15 @@ select rownum, pseq, name, price2, image
 from product where useyn='y' order by indate desc)
 where rownum <= 4;
 
-
+select * from worker;
+select * from member;
+select * from product;
+select * from cart;
+select * from orders;
+select * from order_detail;
+select * from cart_view;
+select * from order_view;
+select * from best_pro_view;
+select * from new_pro_view;
+select * from qna;
 
