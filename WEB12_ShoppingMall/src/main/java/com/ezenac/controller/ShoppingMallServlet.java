@@ -30,12 +30,12 @@ public class ShoppingMallServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String command = request.getParameter("command");
-		System.out.println("command");
+		System.out.println(command);
 		
 		ActionFactory af = ActionFactory.getInstance();
 		Action ac = af.getAction(command);
 		
-		if(ac!=null)
+		if(ac != null)
 			ac.execute(request, response);
 		else
 			System.out.println("command 값을 확인하세요.");
