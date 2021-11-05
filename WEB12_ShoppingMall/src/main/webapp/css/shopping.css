@@ -207,16 +207,16 @@ form fieldset{
 }
 
 form fieldset legend{
-	font-size: 20px; /* 제목으로 사용되기 때문에 크기를 크게 잡아줍니다. */
-	border-bottom: 1px dotted #666; /* 제목 하단 부에 점선을 넣어 제목이라는 것을 표시해줍니다. */
-	width: 600px; /* 전체 크기를 잡아줍니다. */
-	padding: 5px 0; /* 위와 아래로 여백을 주고 좌우로는 여백을 없애버립니다. 여백을 안 주게 되면 밑줄과 너무
-	붙어버려 보기에 좋지 않습니다. */
+	font-size: 20px;
+	border-bottom: 1px dotted #666;
+	width: 600px; 
+	padding: 5px 0;
 }
 
 form label{
-	width: 140px; /* 전체의 크기를 정의합니다. */
-	float: left; /* 왼쪽으로 이동시킵니다. */ margin: 5px 0; /* 마진을 이용해서 상하로 간격을 줍니다. */
+	width: 140px;
+	float: left;
+	margin: 5px 0;
 }
 
 form input{
