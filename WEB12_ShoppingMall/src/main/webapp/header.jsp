@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Main</title>
 <link href="css/shopping.css" rel="stylesheet">
 <script src="member/member.js"></script>
 <script src="mypage/mypage.js"></script>
