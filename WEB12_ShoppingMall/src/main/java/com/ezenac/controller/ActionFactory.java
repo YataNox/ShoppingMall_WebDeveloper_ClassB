@@ -2,6 +2,7 @@ package com.ezenac.controller;
 
 import com.ezenac.controller.action.Action;
 import com.ezenac.controller.action.IndexAction;
+import com.ezenac.controller.action.LoginFormAction;
 
 public class ActionFactory {
 	private ActionFactory() {}
@@ -12,6 +13,7 @@ public class ActionFactory {
 		Action ac = null;
 		
 		if(command.equals("index")) ac = new IndexAction();
+		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		
 		return ac;
 	}
