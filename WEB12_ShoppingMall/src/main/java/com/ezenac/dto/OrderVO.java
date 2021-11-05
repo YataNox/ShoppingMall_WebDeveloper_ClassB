@@ -8,7 +8,7 @@ public class OrderVO {
 	private String id;
 	private Timestamp indate;
 	private String mname;
-	private String zipnum;
+	private String zip_num;
 	private String address;
 	private String phone;
 	private int pseq;
@@ -48,10 +48,10 @@ public class OrderVO {
 		this.mname = mname;
 	}
 	public String getZipnum() {
-		return zipnum;
+		return zip_num;
 	}
 	public void setZipnum(String zipnum) {
-		this.zipnum = zipnum;
+		this.zip_num = zipnum;
 	}
 	public String getAddress() {
 		return address;
