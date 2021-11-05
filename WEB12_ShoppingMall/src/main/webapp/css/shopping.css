@@ -83,3 +83,58 @@ nav#catagory_menu a:hover {
 	background-repeat: repeat-x;
 	background-position: bottom;
 }
+
+.clear {
+	clear: both;
+}
+
+footer {
+	margin: 10px 0 0 0; height: 70px;
+	background-image: url(../images/bottom_logo.png);
+	background-repeat: no-repeat;
+	background-position: 60px center;
+}
+
+footer #copy{
+	margin: 5px 0 0 300px;
+	width: 600px; float: left;
+}
+
+#main_img{
+	text-align: center;
+}
+
+#main_img img{
+	margin: 9px 0 0 0;
+}
+
+#bestProduct {
+	border: 3px solid #F4CBFA;
+	border-radius: 10px;
+	width: 910px; min-height: 260px;
+	background-color: #F4CBFA;
+	padding: 10px;
+	text-align: center;
+}
+
+#item {
+	width: 200px;
+	float: left;
+	margin: 0 13px;
+	text-align: center;
+}
+
+#item img{
+	width: 190px; height: 200px;
+	border-radius: 20px 20px 20px 20px;
+	overflow: hidden;
+	border: 3px solid gray;
+}
+
+article h2, div h2 {
+	font-family: Verdana;
+	font-size: 30px;
+	color: #6F0C78;
+	padding-bottom: 15px;
+	border-bottom: 1px dotted #666;
+}
