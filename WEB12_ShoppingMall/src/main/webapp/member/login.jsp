@@ -11,7 +11,7 @@
 		
 		<fieldset>
 			<legend></legend>
-			<label>User ID</label><input type="text" name="id"><br>
+			<label>User ID</label><input type="text" name="id"><br><br>
 			<label>Password</label><input type="password" name="pwd"><br>
 		</fieldset>
 		<div id="buttons">
