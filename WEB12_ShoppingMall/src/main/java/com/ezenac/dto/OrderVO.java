@@ -47,11 +47,11 @@ public class OrderVO {
 	public void setMname(String mname) {
 		this.mname = mname;
 	}
-	public String getZipnum() {
+	public String getZip_num() {
 		return zip_num;
 	}
-	public void setZipnum(String zipnum) {
-		this.zip_num = zipnum;
+	public void setZip_num(String zip_num) {
+		this.zip_num = zip_num;
 	}
 	public String getAddress() {
 		return address;
