@@ -12,10 +12,12 @@
 <div id="bestProduct">
 	<c:forEach items="${newProductList}" var="productVO">
 		<div id="item"> <!-- 상품 하나 -->
-			<img src="product_images/${productVO.image}"/>
-			<h3>
-				${productVO.name} - <fmt:formatNumber value="${productVO.price2}" type="currency"/>
-			</h3> <!-- 상품명 가격 -->
+			<a href="shop.do?command=productDetail&pseq=${productVO.pseq}">
+				<img src="product_images/${productVO.image}"/>
+				<h3>
+					${productVO.name} - <fmt:formatNumber value="${productVO.price2}" type="currency"/>
+				</h3> <!-- 상품명 가격 -->
+			</a>
 		</div>
 	</c:forEach>
 </div>
@@ -25,10 +27,12 @@
 <div id="bestProduct">
 	<c:forEach items="${bestProductList}" var="productVO">
 		<div id="item"> <!-- 상품 하나 -->
-			<img src="product_images/${productVO.image}"/>
-			<h3>
-				${productVO.name} - <fmt:formatNumber value="${productVO.price2}" type="currency"/>
-			</h3> <!-- 상품명 가격 -->
+			<a href="shop.do?command=productDetail&pseq=${productVO.pseq}">
+				<img src="product_images/${productVO.image}"/>
+				<h3>
+					${productVO.name} - <fmt:formatNumber value="${productVO.price2}" type="currency"/>
+				</h3> <!-- 상품명 가격 -->
+			</a>
 		</div>
 	</c:forEach>
 </div>
