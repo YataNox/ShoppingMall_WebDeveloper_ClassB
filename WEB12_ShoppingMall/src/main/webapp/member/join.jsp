@@ -9,20 +9,20 @@
 			<fieldset>
 				<legend>Basic Info</legend>
 				<label>User ID</label><input type="text" name="id" size="12"><input type="hidden" name="reid">
-				<input type="button" value="중복 체크" class="dup" onclick="idcheck()"><br><br>
-				<label>Password</label><input type="password" name="pwd"><br><br>
-				<label>Retype Password</label><input type="password" name="pwdCheck"><br><br>
-				<label>Name</label><input type="text" name="name"><br><br>
-				<label>Email</label><input type="text" name="email"><br><br>
+				<input type="button" value="중복 체크" class="dup" onclick="idcheck()"><br>
+				<label>Password</label><input type="password" name="pwd"><br>
+				<label>Retype Password</label><input type="password" name="pwdCheck"><br>
+				<label>Name</label><input type="text" name="name"><br>
+				<label>Email</label><input type="text" name="email"><br>
 			</fieldset>
 			
 			<fieldset>
 				<legend>Optional</legend>
 				<label>Zip Code</label><input type="text" name="zip_num" size="10">
-				<input type="button" value="주소 찾기" class="dup" onclick="post_zip()"><br><br>
-				<label>Address</label><input type="text" name="addr1" size="50"><br><br>
-				<label>&nbsp;</label><input type="text" name="addr2" size="25"><br><br>
-				<label>Phone Number</label><input type="text" name="phone"><br><br>
+				<input type="button" value="주소 찾기" class="dup" onclick="post_zip()"><br>
+				<label>Address</label><input type="text" name="addr1" size="50"><br>
+				<label>&nbsp;</label><input type="text" name="addr2" size="25"><br>
+				<label>Phone Number</label><input type="text" name="phone"><br>
 			</fieldset>
 			
 			<div class="clear"></div>
