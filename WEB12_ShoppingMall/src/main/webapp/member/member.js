@@ -26,3 +26,15 @@ function go_next(){
 	}
 	
 }
+
+function idcheck(){
+	if(document.joinForm.id.value==""){
+		alert("아이디를 입력하세요.");
+		document.joinForm.id.focus();
+		return;
+	}
+	
+	var url = "shop.do?command=idCheckForm&id=" + document.joinForm.id.value;
+	var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=250";
+	window.open(url, "IdCheck", opt);
+}
