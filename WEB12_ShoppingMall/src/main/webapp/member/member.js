@@ -93,5 +93,10 @@ function go_update(){
 		document.joinForm.action = "shop.do";
 		document.joinForm.submit();
 	}
-	
+}
+
+function find_id(){
+	var url = "shop.do?command=findIdPwd";
+	var opt = "toolbar=no, menubar=no, resizable=no, width=700, height=500, top=300, left=300";
+	window.open(url, "Find Id/Pw", opt);
 }
