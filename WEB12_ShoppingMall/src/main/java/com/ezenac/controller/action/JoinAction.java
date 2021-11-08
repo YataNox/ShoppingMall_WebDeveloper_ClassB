@@ -12,7 +12,7 @@ import com.ezenac.dto.MemberVO;
 public class JoinAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberVO mvo = new MemberVO();
-		mvo.setId(request.getParameter("ud"));
+		mvo.setId(request.getParameter("id"));
 		mvo.setPwd(request.getParameter("pwd"));
 		mvo.setName(request.getParameter("name"));
 		mvo.setEmail(request.getParameter("email"));
