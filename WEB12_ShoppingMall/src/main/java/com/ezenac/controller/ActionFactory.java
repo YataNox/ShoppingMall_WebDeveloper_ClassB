@@ -16,6 +16,7 @@ import com.ezenac.controller.action.LoginFormAction;
 import com.ezenac.controller.action.LogoutAction;
 import com.ezenac.controller.action.MEditFormAction;
 import com.ezenac.controller.action.MemberUpdateAction;
+import com.ezenac.controller.action.FindIdStep2Action;
 
 public class ActionFactory {
 	private ActionFactory() {}
@@ -39,6 +40,7 @@ public class ActionFactory {
 		else if(command.equals("findIdPwd")) ac = new FindIdPwdAction();
 		else if(command.equals("findIdForm")) ac = new FindIdFormAction();
 		else if(command.equals("findIdStep1")) ac = new FindIdStep1Action();
+		else if(command.equals("findIdStep2")) ac = new FindIdStep2Action();
 		else if(command.equals("findPwForm")) ac = new FindPwFormAction();
 		return ac;
 	}
