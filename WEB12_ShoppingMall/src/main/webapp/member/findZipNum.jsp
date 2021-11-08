@@ -33,7 +33,7 @@
 		<script type="text/javascript">
 			function result(zipNum, sido, gugun, dong){
 				opener.document.joinForm.zip_num.value=zipNum;
-				opener.document.joinForm.add1.value=sido+" "+gugun+" "+dong;
+				opener.document.joinForm.addr1.value=sido+" "+gugun+" "+dong;
 				self.close();
 			}
 		</script>
