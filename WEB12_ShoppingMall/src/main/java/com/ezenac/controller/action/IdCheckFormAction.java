@@ -20,7 +20,7 @@ public class IdCheckFormAction implements Action {
 		request.setAttribute("result", result);
 		request.setAttribute("id", id);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("member/incheck.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("member/idcheck.jsp");
 		rd.forward(request, response);
 	}
 }
