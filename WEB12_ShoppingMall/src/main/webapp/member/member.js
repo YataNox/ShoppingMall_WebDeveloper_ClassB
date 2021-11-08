@@ -38,3 +38,15 @@ function idcheck(){
 	var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=250";
 	window.open(url, "IdCheck", opt);
 }
+
+function idok(userid){
+	opener.joinForm.id.value=userid;
+	opener.joinForm.reid.value=userid;
+	self.close();
+}
+
+function post_zip(){
+	var url = "shop.do?command=findZipNum";
+	var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=300, top=300, left=300";
+	window.open(url, "우편번호 찾기", opt);
+}
