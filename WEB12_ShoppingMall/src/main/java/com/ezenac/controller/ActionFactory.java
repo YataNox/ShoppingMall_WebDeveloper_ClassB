@@ -11,6 +11,7 @@ import com.ezenac.controller.action.LoginAction;
 import com.ezenac.controller.action.LoginFormAction;
 import com.ezenac.controller.action.LogoutAction;
 import com.ezenac.controller.action.MEditFormAction;
+import com.ezenac.controller.action.MemberUpdateAction;
 
 public class ActionFactory {
 	private ActionFactory() {}
@@ -30,6 +31,7 @@ public class ActionFactory {
 		else if(command.equals("join")) ac = new JoinAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
 		else if(command.equals("mEditForm")) ac = new MEditFormAction();
+		else if(command.equals("memberUpdate")) ac = new MemberUpdateAction();
 		return ac;
 	}
 }
