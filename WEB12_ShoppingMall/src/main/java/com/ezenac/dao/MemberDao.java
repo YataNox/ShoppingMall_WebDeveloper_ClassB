@@ -103,4 +103,27 @@ public class MemberDao {
 		
 		return list;
 	}
+
+	public void insertMember(MemberVO mvo) {
+		con = DBman.getConnection();
+		String sql="insert into member(id, pwd, name, zip_num, address, email, phone) "
+				+ "values(?, ?, ?, ?, ?, ?, ?)";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mvo.getId());
+			pstmt.setString(2, mvo.getPwd());
+			pstmt.setString(3, mvo.getName());
+			pstmt.setString(4, mvo.getZip_num());
+			pstmt.setString(5, mvo.getAddress());
+			pstmt.setString(6, mvo.getEmail());
+			pstmt.setString(7, mvo.getPhone());
+			
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+	}
 }
