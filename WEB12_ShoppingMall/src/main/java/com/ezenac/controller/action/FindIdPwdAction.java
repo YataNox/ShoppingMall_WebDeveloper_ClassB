@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class FindIdPwdAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "member/findIdPwd";
+		String url = "member/findIdPw.jsp";
 		
 		// RequestDispatcher rd = request.getRequestDispatcher(url);
 		// rd.forward(request, response);
