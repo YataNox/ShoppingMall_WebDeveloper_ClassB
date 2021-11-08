@@ -9,6 +9,7 @@ import com.ezenac.controller.action.JoinAction;
 import com.ezenac.controller.action.JoinFormAction;
 import com.ezenac.controller.action.LoginAction;
 import com.ezenac.controller.action.LoginFormAction;
+import com.ezenac.controller.action.LogoutAction;
 
 public class ActionFactory {
 	private ActionFactory() {}
@@ -26,6 +27,7 @@ public class ActionFactory {
 		else if(command.equals("idCheckForm")) ac = new IdCheckFormAction();
 		else if(command.equals("findZipNum")) ac = new FindZipNumAction();
 		else if(command.equals("join")) ac = new JoinAction();
+		else if(command.equals("logout")) ac = new LogoutAction();
 		return ac;
 	}
 }
