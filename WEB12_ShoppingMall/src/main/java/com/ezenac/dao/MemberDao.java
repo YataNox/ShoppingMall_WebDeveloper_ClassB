@@ -149,4 +149,30 @@ public class MemberDao {
 			DBman.close(con, pstmt, rs);
 		}
 	}
+
+	public MemberVO confirmPhone(String name, String phone) {
+		MemberVO mvo = null;
+		con = DBman.getConnection();
+		String sql = "select * from member where name=? and phone=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, phone);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mvo = new MemberVO();
+				mvo.setId(rs.getString("id"));
+				mvo.setName(rs.getString("name"));
+				mvo.setPhone(rs.getString("phone"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return mvo;
+	}
 }
