@@ -47,4 +47,28 @@ public class MemberDao {
 		
 		return mvo;
 	}
+
+	public int confirmID(String id) {
+		int result = -1;
+		
+		con = DBman.getConnection();
+		String sql="select * from member where id=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 1; // 이미 아이디가 존재한다면 결과를 1로 변경
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return result;
+	}
 }
