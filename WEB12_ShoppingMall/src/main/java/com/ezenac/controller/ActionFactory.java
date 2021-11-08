@@ -4,6 +4,8 @@ import com.ezenac.controller.action.Action;
 import com.ezenac.controller.action.ContractAction;
 import com.ezenac.controller.action.FindIdFormAction;
 import com.ezenac.controller.action.FindIdPwdAction;
+import com.ezenac.controller.action.FindIdStep1Action;
+import com.ezenac.controller.action.FindPwFormAction;
 import com.ezenac.controller.action.FindZipNumAction;
 import com.ezenac.controller.action.IdCheckFormAction;
 import com.ezenac.controller.action.IndexAction;
@@ -36,6 +38,8 @@ public class ActionFactory {
 		else if(command.equals("memberUpdate")) ac = new MemberUpdateAction();
 		else if(command.equals("findIdPwd")) ac = new FindIdPwdAction();
 		else if(command.equals("findIdForm")) ac = new FindIdFormAction();
+		else if(command.equals("findIdStep1")) ac = new FindIdStep1Action();
+		else if(command.equals("findPwForm")) ac = new FindPwFormAction();
 		return ac;
 	}
 }
