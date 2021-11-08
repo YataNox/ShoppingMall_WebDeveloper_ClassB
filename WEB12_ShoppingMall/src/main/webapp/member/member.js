@@ -71,7 +71,7 @@ function go_save(){
 		alert("이메일을 입력해 주세요.");
 		document.joinForm.email.focus();
 	}else{
-		docuement.joinForm.action = "shop.do";
+		document.joinForm.action = "shop.do";
 		document.joinForm.submit();
 	}
 }
