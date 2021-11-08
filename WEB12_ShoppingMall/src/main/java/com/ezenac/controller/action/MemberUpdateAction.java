@@ -6,6 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ezenac.dao.MemberDao;
 import com.ezenac.dto.MemberVO;
@@ -23,6 +24,9 @@ public class MemberUpdateAction implements Action {
 		
 		MemberDao mdao = MemberDao.getInstance();
 		mdao.updateMember(mvo);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("loginUser", mvo);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("shop.do?command=index");
 		rd.forward(request, response);
