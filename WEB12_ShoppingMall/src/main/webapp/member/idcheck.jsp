@@ -7,6 +7,9 @@
 		<title>IDCheck</title>
 		<link href="css/shopping.css" rel="stylesheet">
 		<script src="member/member.js"></script>
+		<style type="text/css">
+			body{background-color: #FDE8FF;}
+		</style>
 	</head>
 	<body>
 		<div id="wrap" style="margin:20px 0">
