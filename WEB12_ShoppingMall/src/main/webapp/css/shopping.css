@@ -271,3 +271,25 @@ form  .cancel {
 #itemdetail img{
 	width: 300px; margin-right: 20px;
 }
+
+table#cartList{
+	border-collapse: collapse;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #333;
+	width: 100%; margin-bottom: 20px;
+}
+
+table#cartList th, td{
+	border-bottom: 1px dotted #333;
+	text-align: center;
+}
+
+#kindProduct{
+	border: 1px solid #FFFFFF;
+	border-radius: 10px;
+	width: 610px;
+	min-height: 900px;
+	background-color: #EBEBEB;
+	padding: 10px;
+	text-align: center;
+}
