@@ -1,6 +1,7 @@
 package com.ezenac.controller;
 
 import com.ezenac.controller.action.Action;
+import com.ezenac.controller.action.CategoryAction;
 import com.ezenac.controller.action.ContractAction;
 import com.ezenac.controller.action.FindIdFormAction;
 import com.ezenac.controller.action.FindIdPwdAction;
@@ -48,8 +49,9 @@ public class ActionFactory {
 		else if(command.equals("findPwForm")) ac = new FindPwFormAction();
 		else if(command.equals("findPwStep1")) ac = new FindPwStep1Action();
 		else if(command.equals("findPwStep2")) ac = new FindPwStep2Action();
-		else if(command.equals("resetPw")) ac = new ResetPwAction();
+		else if(command.equals("resetPw")) ac = new ResetPwAction();//Member End----------
 		else if(command.equals("productDetail")) ac = new ProductDetailAction();
+		else if (command.equals("category")) ac = new CategoryAction();
 		return ac;
 	}
 }
