@@ -18,6 +18,7 @@ import com.ezenac.controller.action.LoginFormAction;
 import com.ezenac.controller.action.LogoutAction;
 import com.ezenac.controller.action.MEditFormAction;
 import com.ezenac.controller.action.MemberUpdateAction;
+import com.ezenac.controller.action.ProductDetailAction;
 import com.ezenac.controller.action.ResetPwAction;
 import com.ezenac.controller.action.FindIdStep2Action;
 
@@ -48,6 +49,7 @@ public class ActionFactory {
 		else if(command.equals("findPwStep1")) ac = new FindPwStep1Action();
 		else if(command.equals("findPwStep2")) ac = new FindPwStep2Action();
 		else if(command.equals("resetPw")) ac = new ResetPwAction();
+		else if(command.equals("productDetail")) ac = new ProductDetailAction();
 		return ac;
 	}
 }
