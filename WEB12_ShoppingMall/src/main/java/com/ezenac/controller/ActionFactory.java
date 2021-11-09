@@ -22,6 +22,7 @@ import com.ezenac.controller.action.LoginFormAction;
 import com.ezenac.controller.action.LogoutAction;
 import com.ezenac.controller.action.MEditFormAction;
 import com.ezenac.controller.action.MemberUpdateAction;
+import com.ezenac.controller.action.OrderInsertAction;
 import com.ezenac.controller.action.ProductDetailAction;
 import com.ezenac.controller.action.ResetPwAction;
 import com.ezenac.controller.action.FindIdStep2Action;
@@ -58,6 +59,7 @@ public class ActionFactory {
 		else if(command.equals("cartInsert")) ac = new CartInsertAction();
 		else if(command.equals("cartList")) ac = new CartListAction();
 		else if(command.equals("cartDelete")) ac = new CartDeleteAction();
+		else if(command.equals("orderInsert")) ac = new OrderInsertAction();
 		return ac;
 	}
 }
