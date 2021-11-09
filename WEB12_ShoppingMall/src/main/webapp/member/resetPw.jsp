@@ -9,12 +9,12 @@
 		</style>
 		<script type="text/javascript">
 			function resetPw(){
-				if(document.frm.pwd==""){}
+				if(document.frm.pwd.value == ""){
 					alert("비밀번호를 입력하세요.");
 					document.frm.pwd.focus();
 					return false;
 				}
-				if(document.frm.pwd==document.frm.pwd_chk){
+				if(document.frm.pwd.value != document.frm.pwd_chk.value){
 					alert("비밀번호확인이 일치하지 않습니다.");
 					document.frm.pwd_chk.focus();
 					return false;
