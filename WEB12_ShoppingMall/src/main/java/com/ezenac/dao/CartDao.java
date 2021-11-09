@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.ezenac.dto.CartVO;
 import com.ezenac.util.DBman;
@@ -33,5 +34,35 @@ public class CartDao {
 		}finally {
 			DBman.close(con, pstmt, rs);
 		}
+	}
+
+	public ArrayList<CartVO> selectCart(String id) {
+		ArrayList<CartVO> list = new ArrayList<CartVO>();
+		String sql = "select * from cart_view where id=? and result='1'";
+		con = DBman.getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				CartVO cvo = new CartVO();
+				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setId(rs.getString("id"));
+				cvo.setMname(rs.getString("mname"));
+				cvo.setPseq(rs.getInt("pseq"));
+				cvo.setPname(rs.getString("pname"));
+				cvo.setQuantity(rs.getInt("quantity"));
+				cvo.setPrice2(rs.getInt("price2"));
+				cvo.setIndate(rs.getTimestamp("indate"));
+				list.add(cvo);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		return list;
 	}
 }
