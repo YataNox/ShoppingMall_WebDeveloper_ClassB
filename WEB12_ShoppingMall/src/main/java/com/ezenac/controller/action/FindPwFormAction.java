@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class FindPwFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		String url = "member/findPwForm.jsp";
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 }
