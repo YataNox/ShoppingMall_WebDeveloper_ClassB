@@ -65,4 +65,20 @@ public class CartDao {
 		}
 		return list;
 	}
+
+	public void deleteCart(String cseq) {
+		String sql = "delete from cart where cseq = ?";
+		con = DBman.getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(cseq));
+			
+			pstmt.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+	}
 }
