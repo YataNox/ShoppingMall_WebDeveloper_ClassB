@@ -1,6 +1,7 @@
 package com.ezenac.controller;
 
 import com.ezenac.controller.action.Action;
+import com.ezenac.controller.action.CartInsertAction;
 import com.ezenac.controller.action.CategoryAction;
 import com.ezenac.controller.action.ContractAction;
 import com.ezenac.controller.action.FindIdFormAction;
@@ -52,6 +53,7 @@ public class ActionFactory {
 		else if(command.equals("resetPw")) ac = new ResetPwAction();//Member End----------
 		else if(command.equals("productDetail")) ac = new ProductDetailAction();
 		else if (command.equals("category")) ac = new CategoryAction();
+		else if(command.equals("cartInsert")) ac = new CartInsertAction();
 		return ac;
 	}
 }
