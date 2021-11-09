@@ -100,4 +100,30 @@ public class ProductDao {
 		
 		return pvo;
 	}
+	public ArrayList<ProductVO> listKindProduct(String kind) {
+		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
+		String sql = "select * from product where kind=?";
+		con = DBman.getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, kind);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO pvo = new ProductVO();
+				pvo.setPseq(rs.getInt("pseq"));
+				pvo.setName(rs.getString("name"));
+				pvo.setPrice2(rs.getInt("price2"));
+				pvo.setImage(rs.getString("image"));
+				list.add(pvo);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return list;
+	}
 }
