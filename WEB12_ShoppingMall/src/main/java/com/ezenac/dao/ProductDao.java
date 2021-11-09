@@ -69,4 +69,35 @@ public class ProductDao {
 		}
 		return bestlist;
 	}
+	public ProductVO getProduct(String pseq) {
+		ProductVO pvo = new ProductVO();
+		con = DBman.getConnection();
+		String sql = "select * from product where pseq = ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pseq);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pvo.setPseq(Integer.parseInt(pseq));
+				pvo.setName(rs.getString("name"));
+				pvo.setKind(rs.getString("kind"));
+				pvo.setPrice1(rs.getInt("price1"));
+				pvo.setPrice2(rs.getInt("price2"));
+				pvo.setPrice3(rs.getInt("price3"));
+				pvo.setContent(rs.getString("content"));
+				pvo.setImage(rs.getString("image"));
+				pvo.setUseyn(rs.getString("useyn"));
+				pvo.setBestyn(rs.getString("bestyn"));
+				pvo.setIndate(rs.getTimestamp("indate"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return pvo;
+	}
 }
