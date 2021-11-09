@@ -203,4 +203,20 @@ public class MemberDao {
 		
 		return mvo;
 	}
+
+	public void resetPw(MemberVO mvo) {
+		String sql = "update member set pwd=? where id=?";
+		con = DBman.getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mvo.getPwd());
+			pstmt.setString(2, mvo.getId());
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+	}
 }
