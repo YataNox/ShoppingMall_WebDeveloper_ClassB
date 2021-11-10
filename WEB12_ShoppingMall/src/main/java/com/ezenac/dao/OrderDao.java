@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezenac.dto.CartVO;
+import com.ezenac.dto.OrderVO;
 import com.ezenac.util.DBman;
 
 public class OrderDao {
@@ -63,5 +64,42 @@ public class OrderDao {
 		}
 		
 		return oseq;
+	}
+
+	public ArrayList<OrderVO> listOrderById(String id, int oseq) {
+		ArrayList<OrderVO> list = new ArrayList<OrderVO>();
+		con = DBman.getConnection();
+		String sql = "select * from order_view where id=? and result='1' and oseq=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, oseq);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				OrderVO ovo = new OrderVO();
+				ovo.setOdseq(rs.getInt("odseq"));
+				ovo.setOseq(rs.getInt("oseq"));
+				ovo.setId(rs.getString("id"));
+				ovo.setIndate(rs.getTimestamp("indate"));
+				ovo.setMname(rs.getString("mname"));
+				ovo.setZip_num(rs.getString("zip_num"));
+				ovo.setAddress(rs.getString("address"));
+				ovo.setPhone(rs.getString("phone"));
+				ovo.setPname(rs.getString("pname"));
+				ovo.setPrice2(rs.getInt("price2"));
+				ovo.setPseq(rs.getInt("pseq"));
+				ovo.setQuantity(rs.getInt("quantity"));
+				ovo.setResult(rs.getString("result"));
+				list.add(ovo);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return list;
 	}
 }
