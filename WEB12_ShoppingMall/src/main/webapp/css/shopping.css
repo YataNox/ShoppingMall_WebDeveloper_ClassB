@@ -244,7 +244,7 @@ form #buttons {
 	margin: 20px 0 0 0;
 }
 
-form  .submit, form  .cancel {
+form .submit, form .cancel {
 	height: 30px;
 	width: 150px;
 	border: 1px solid #666;
@@ -257,16 +257,13 @@ form  .submit, form  .cancel {
 	margin: 0 0 0 20px;
 }
 
-form  .submit {
+form .submit {
 	background-image: url(../images/submit_back.jpg);
 }
 
-form  .cancel {
+form .cancel {
 	background-image: url(../images/cancel_back.jpg);
 }
-
-
-
 
 #itemdetail img{
 	width: 300px; margin-right: 20px;
