@@ -231,3 +231,7 @@ select * from best_pro_view;
 select * from new_pro_view;
 select * from qna;
 select * from address;
+
+select distinct oseq from order_view where id='scott' amd result='1' order by oseq desc;
+
+update order_detail set result='2' where oseq = 6;
