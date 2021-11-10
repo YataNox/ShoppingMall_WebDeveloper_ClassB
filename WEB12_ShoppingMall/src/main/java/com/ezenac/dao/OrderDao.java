@@ -102,4 +102,27 @@ public class OrderDao {
 		
 		return list;
 	}
+
+	public ArrayList<Integer> selectSeqOrderIng(String id) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		// 주문자의 처리 안 된 주문의 주문번호(oseq)를 조회하여 리스트를 리턴합니다.
+		String sql ="select distinct oseq from order_view "
+				+ "where id=? and result='1' order by oseq desc";
+		con = DBman.getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next())
+				list.add(rs.getInt(1));
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return list;
+	}
 }
