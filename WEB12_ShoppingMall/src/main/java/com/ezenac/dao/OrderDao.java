@@ -128,7 +128,7 @@ public class OrderDao {
 
 	public ArrayList<Integer> oseqListAll(String id) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
-		String sql = "select distincy oseq, result from order_view where id = ? "
+		String sql = "select distinct oseq, result from order_view where id = ? "
 				+ "order by result, oseq desc"; // where에 result='1'이 없습니다.
 		// 처리와 미처리로 구분되어야 해서 result로 정렬해서 조회합니다.
 		con = DBman.getConnection();
