@@ -66,6 +66,7 @@ public class ActionFactory {
 		else if(command.equals("orderList")) ac = new OrderListAction();
 		else if(command.equals("myPage")) ac = new MyPageAction();
 		else if(command.equals("orderAll")) ac= new OrderAllAction();
+		else if(command.equals("qnaList")) ac = new QnaListAction();
 		return ac;
 	}
 }
