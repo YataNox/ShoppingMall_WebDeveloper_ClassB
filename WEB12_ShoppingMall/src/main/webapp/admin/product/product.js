@@ -32,3 +32,9 @@ function go_save(){
 		theForm.submit();
 	}
 }
+
+function go_detail(pseq){
+	var url = "shop.do?command=adminProductDetail&pseq=" + pseq;
+	document.frm.action = url;
+	document.frm.submit();
+}
