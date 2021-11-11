@@ -15,16 +15,16 @@ function go_save(){
 	}else if(theForm.name.value==""){
 		alert("상품명을 입력하세요.");
 		theForm.name.focus();
-	}else if(theForm.price1.value=""){
+	}else if(theForm.price1.value==""){
 		alert("원가를 입력하세요");
 		theForm.price1.focus();
-	}else if(theForm.price2.value=""){
+	}else if(theForm.price2.value==""){
 		alert("판매가를 입력하세요");
 		theForm.price2.focus();
-	}else if(theForm.content.value=""){
+	}else if(theForm.content.value==""){
 		alert("상품상세를 입력하세요");
 		theForm.content.focus();
-	}else if(theForm.image.value=""){
+	}else if(theForm.image.value==""){
 		alert("상품이미지를 입력하세요");
 		theForm.image.focus();
 	}else{
