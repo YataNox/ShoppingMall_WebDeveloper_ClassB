@@ -1,7 +1,7 @@
 package com.ezenac.controller;
 
 import com.ezenac.controller.action.Action;
-import com.ezenac.controller.action.AdminAction;
+import com.ezenac.controller.admin.action.AdminAction;
 import com.ezenac.controller.action.CartDeleteAction;
 import com.ezenac.controller.action.CartInsertAction;
 import com.ezenac.controller.action.CartListAction;
