@@ -25,12 +25,10 @@
 			<tr>
 				<th>원가[A]</th>
 				<td width="70"><input type="text" name="price1" size="11"></td>
-			</tr>
-			<tr>
+			
 				<th>판매가[B]</th>
 				<td width="70"><input type="text" name="price2" size="11"></td>
-			</tr>
-			<tr>
+				
 				<th>[B-A]</th>
 				<td width="72"><input type="text" name="price3" size="11"></td>
 			</tr>
