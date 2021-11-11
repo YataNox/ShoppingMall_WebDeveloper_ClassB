@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <%@ include file="sub_img.html"%>
 <%@ include file="sub_menu.jsp"%>
@@ -17,9 +16,8 @@
 		<div class="clear"></div>
 		<div id="buttons" style="float: right">
 			<input type="submit" value="글쓰기" class="submit">
-			<input	type="reset" value="취소" class="cancel"> 
-			<input type="button" value="쇼핑 계속하기" class="submit"
-				onclick="location.href='shop.do?command=index'">
+			<input type="reset" value="취소" class="cancel"> 
+			<input type="button" value="쇼핑 계속하기" class="submit" onclick="location.href='shop.do?command=index'">
 		</div>
 	</form>
 </article>
