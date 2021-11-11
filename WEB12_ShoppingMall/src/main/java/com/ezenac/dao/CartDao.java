@@ -19,9 +19,10 @@ public class CartDao {
 	ResultSet rs = null;
 	
 	public void insertCart(CartVO cvo) {
-		String sql = "insert into cart( cseq , id, pseq, quantity)"
+		String sql = "insert into cart( cseq , id, pseq, quantity) "
 				+ "values( cart_seq.nextVal, ? , ? , ? )";
 		con = DBman.getConnection();
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,  cvo.getId() );
@@ -29,8 +30,11 @@ public class CartDao {
 			pstmt.setInt( 3, cvo.getQuantity() );
 			
 			pstmt.executeUpdate();
-		} catch (SQLException e) {e.printStackTrace();
-		} finally { DBman.close(con, pstmt, rs); }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally { 
+			DBman.close(con, pstmt, rs); 
+		}
 		
 	}
 
@@ -38,10 +42,12 @@ public class CartDao {
 		ArrayList<CartVO> list = new ArrayList<CartVO>();
 		String sql = "select * from cart_view where id=? and result='1'";
 		con = DBman.getConnection();
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
+			
 			while( rs.next() ) {
 				CartVO cvo = new CartVO();				
 				cvo.setCseq(rs.getInt("cseq"));  		
@@ -54,20 +60,28 @@ public class CartDao {
 				cvo.setIndate(rs.getTimestamp("indate"));
 				list.add(cvo);
 			}
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { DBman.close(con, pstmt, rs); }
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally {
+			DBman.close(con, pstmt, rs); 
+		}
+		
 		return list;
 	}
 
 	public void deleteCart(String cseq) {
 		String sql = "delete from cart where cseq=?";
 		con = DBman.getConnection();
+		
 		try {
 		      pstmt = con.prepareStatement(sql); 
 		      pstmt.setInt(1, Integer.parseInt(cseq));
 		      pstmt.executeUpdate();
-		} catch (Exception e) { e.printStackTrace();
-	    } finally { DBman.close(con, pstmt, rs); }   		
+		} catch (Exception e) {
+			e.printStackTrace();
+	    } finally { 
+	    	DBman.close(con, pstmt, rs);
+	    }   		
 		
 	}
 }
