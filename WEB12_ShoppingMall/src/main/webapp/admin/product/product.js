@@ -38,3 +38,8 @@ function go_detail(pseq){
 	document.frm.action = url;
 	document.frm.submit();
 }
+
+function go_mod(pseq){
+	var url = "shop.do?command=adminProductUpdateForm&pseq=" + pseq;
+	location.href=url;
+}
