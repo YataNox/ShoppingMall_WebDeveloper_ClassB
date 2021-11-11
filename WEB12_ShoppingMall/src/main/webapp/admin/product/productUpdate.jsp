@@ -77,9 +77,7 @@
 			<tr>
 				<th>상세설명</th>
 				<td colspan="5">
-					<textarea rows="8" cols="70" name="content">
-						<pre>${productVO.content}</pre>
-					</textarea>
+					<textarea rows="8" cols="70" name="content">${productVO.content}</textarea>
 				</td>
 			</tr>
 			<tr>
