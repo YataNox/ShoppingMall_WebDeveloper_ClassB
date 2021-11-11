@@ -19,66 +19,55 @@ public class ProductDao {
 	ResultSet rs = null;
 	
 	public ArrayList<ProductVO> getNewList() {
-		ArrayList<ProductVO> newlist = new ArrayList<ProductVO>();
+		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
 		String sql = "select * from new_pro_view";
 		con = DBman.getConnection();
-		
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt= con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
+			while( rs.next() ) {
 				ProductVO pvo = new ProductVO();
-				// 신상품의 이름, 가격, 이미지만 현재 필요하기 때문에 필요한 필드만 dto에 담습니다.
+				// 신상품의 이름, 가격, 이미지만 현재 필요하기 때문에 필요한 필드만 dto 에 담습니다
 				pvo.setPseq(rs.getInt("pseq"));
 				pvo.setName(rs.getString("name"));
 				pvo.setPrice2(rs.getInt("price2"));
 				pvo.setImage(rs.getString("image"));
-				newlist.add(pvo);
+				list.add(pvo);
 			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			DBman.close(con, pstmt, rs);
-		}
-		
-		return newlist;
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBman.close(con, pstmt, rs); }
+		return list;
 	}
+
 	public ArrayList<ProductVO> getBestList() {
-		ArrayList<ProductVO> bestlist = new ArrayList<ProductVO>();
+		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
 		String sql = "select * from best_pro_view";
 		con = DBman.getConnection();
-		
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt= con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
+			while( rs.next() ) {
 				ProductVO pvo = new ProductVO();
-				// 신상품의 이름, 가격, 이미지만 현재 필요하기 때문에 필요한 필드만 dto에 담습니다.
+				// 신상품의 이름, 가격, 이미지만 현재 필요하기 때문에 필요한 필드만 dto 에 담습니다
 				pvo.setPseq(rs.getInt("pseq"));
 				pvo.setName(rs.getString("name"));
 				pvo.setPrice2(rs.getInt("price2"));
 				pvo.setImage(rs.getString("image"));
-				bestlist.add(pvo);
+				list.add(pvo);
 			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			DBman.close(con, pstmt, rs);
-		}
-		return bestlist;
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBman.close(con, pstmt, rs); }
+		return list;
 	}
+
 	public ProductVO getProduct(String pseq) {
 		ProductVO pvo = new ProductVO();
-		con = DBman.getConnection();
 		String sql = "select * from product where pseq = ?";
-		
+		con = DBman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, pseq);
+			pstmt.setString(1,  pseq);
 			rs = pstmt.executeQuery();
-			
 			if(rs.next()) {
 				pvo.setPseq(Integer.parseInt(pseq));
 				pvo.setName(rs.getString("name"));
@@ -92,38 +81,39 @@ public class ProductDao {
 				pvo.setBestyn(rs.getString("bestyn"));
 				pvo.setIndate(rs.getTimestamp("indate"));
 			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			DBman.close(con, pstmt, rs);
-		}
-		
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBman.close(con, pstmt, rs); }
 		return pvo;
 	}
+
 	public ArrayList<ProductVO> listKindProduct(String kind) {
 		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
-		String sql = "select * from product where kind=?";
-		con = DBman.getConnection();
+		String sql= "select * from product where kind=?";
 		
+		con = DBman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, kind);
+			pstmt.setString(1,  kind);
 			rs = pstmt.executeQuery();
-			
 			while(rs.next()) {
-				ProductVO pvo = new ProductVO();
-				pvo.setPseq(rs.getInt("pseq"));
-				pvo.setName(rs.getString("name"));
-				pvo.setPrice2(rs.getInt("price2"));
-				pvo.setImage(rs.getString("image"));
-				list.add(pvo);
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			DBman.close(con, pstmt, rs);
-		}
-		
+		    	ProductVO pvo = new ProductVO();
+		    	pvo.setPseq(rs.getInt("pseq"));
+		    	pvo.setName(rs.getString("name"));
+		    	pvo.setPrice2(rs.getInt("price2"));
+		    	pvo.setImage(rs.getString("image"));		    	
+		    	list.add(pvo);
+		    }
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { DBman.close(con, pstmt, rs); }
 		return list;
 	}
 }
+
+
+
+
+
+
+
+
+
