@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.ezenac.dto.AdminVO;
 import com.ezenac.dto.ProductVO;
 import com.ezenac.util.DBman;
+import com.ezenac.util.Paging;
 
 public class AdminDao {
 	private AdminDao() {}
@@ -45,13 +46,21 @@ public class AdminDao {
 		return avo;
 	}
 
-	public ArrayList<ProductVO> listProduct() {
+	public ArrayList<ProductVO> listProduct(Paging paging) {
 		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
-		String sql ="select * from product order by pseq desc";
+		//String sql ="select * from product order by pseq desc";
+		String sql = "select * from ("
+				+ "select * from ("
+				+ "select rownum as rn, p.* from "
+				+ "((select * from product order by pseq desc) p)"
+				+ ") where rn >=?"
+				+ ") where rn <=?";
 		
 		try {
 			con = DBman.getConnection();
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, paging.getStartNum());
+			pstmt.setInt(2, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
