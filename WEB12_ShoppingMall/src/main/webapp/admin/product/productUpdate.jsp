@@ -41,7 +41,7 @@
 				
 				<th>판매가[B]</th>
 				<td width="70">
-					<input type="text" name="price2" size="11" value="${productVO.price3}">
+					<input type="text" name="price2" size="11" value="${productVO.price2}">
 				</td>
 				
 				<th>[B-A]</th>

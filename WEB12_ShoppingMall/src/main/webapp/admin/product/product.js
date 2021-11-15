@@ -63,7 +63,7 @@ function go_mod_save(){
 	}else{
 		if(confirm('수정하시겠습니까?')){
 			document.frm.action = "shop.do?command=adminProductUpdate";
-			document.frm.sucmit();
+			document.frm.submit();
 		}
 	}
 	
