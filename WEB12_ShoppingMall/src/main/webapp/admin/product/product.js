@@ -43,3 +43,28 @@ function go_mod(pseq){
 	var url = "shop.do?command=adminProductUpdateForm&pseq=" + pseq;
 	location.href=url;
 }
+
+function go_mod_save(){
+	if(document.frm.kind.value==""){
+		alert("상품분류를 선택하세요.");
+		document.frm.kind.focus();
+	}else if(document.frm.name.value==""){
+		alert("상품명을 선택하세요.");
+		document.frm.name.focus();
+	}else if(document.frm.price1.value==""){
+		alert("원가를 선택하세요.");
+		document.frm.price1.focus();
+	}else if(document.frm.price2.value==""){
+		alert("판매가를 선택하세요.");
+		document.frm.price2.focus();
+	}else if(document.frm.content.value==""){
+		alert("상품상세를 선택하세요.");
+		document.frm.content.focus();
+	}else{
+		if(confirm('수정하시겠습니까?')){
+			document.frm.action = "shop.do?command=adminProductUpdate";
+			document.frm.sucmit();
+		}
+	}
+	
+}
