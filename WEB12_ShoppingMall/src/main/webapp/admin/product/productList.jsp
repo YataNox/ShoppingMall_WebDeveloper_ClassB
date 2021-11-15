@@ -40,7 +40,17 @@
 				</td>
 			</tr>
 		</c:forEach>
-	</table>
+	</table><br>
+	
+	<jsp:include page="/admin/paging/paging.jsp">
+		<jsp:param name="page" value="${paging.page}"/>
+		<jsp:param name="beginPage" value="${paging.beginPage}"/>
+		<jsp:param name="endPage" value="${paging.endPage}"/>
+		<jsp:param name="prev" value="${paging.prev}"/>
+		<jsp:param name="next" value="${paging.next}"/>
+		<jsp:param name="command" value="shop.do?command=adminProductList"/>
+	</jsp:include>
+	
 </article>
 
 <%@ include file="/admin/footer.jsp"%>
