@@ -5,6 +5,7 @@ import com.ezenac.controller.admin.action.AdminAction;
 import com.ezenac.controller.admin.action.AdminLoginAction;
 import com.ezenac.controller.admin.action.AdminProductDetailAction;
 import com.ezenac.controller.admin.action.AdminProductListAction;
+import com.ezenac.controller.admin.action.AdminProductUpdateAction;
 import com.ezenac.controller.admin.action.AdminProductUpdateFormAction;
 import com.ezenac.controller.admin.action.AdminProductWriteAction;
 import com.ezenac.controller.admin.action.AdminProductWriteFormAction;
@@ -90,6 +91,7 @@ public class ActionFactory {
 		else if(command.equals("adminProductWrite")) ac = new AdminProductWriteAction();
 		else if(command.equals("adminProductDetail")) ac = new AdminProductDetailAction();
 		else if(command.equals("adminProductUpdateForm")) ac = new AdminProductUpdateFormAction();
+		else if(command.equals("adminProductUpdate")) ac = new AdminProductUpdateAction();
 		return ac;
 	}
 }
