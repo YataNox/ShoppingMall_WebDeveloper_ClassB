@@ -125,4 +125,23 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		}
 	}
 
+	public int getAllCount(String tableName) {
+		int count = 0;
+		String sql = "select count(*) as cnt from " + tableName;
+		
+		try {
+			con = DBman.getConnection();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				count = rs.getInt("cnt");
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return count;
+	}
+
 }
