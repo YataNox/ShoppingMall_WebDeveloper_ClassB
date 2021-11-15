@@ -99,4 +99,30 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		}
 	}
 
+	public void updateProduct(ProductVO pvo) {
+		String sql = "update product set kind=?, name=?, price1=?, "
+				+ "price2=?, price3=?, content=?, image=?, bestyn=?, useyn=? where pseq=?";
+		
+		try {
+			con = DBman.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pvo.getKind());
+			pstmt.setString(2, pvo.getName());
+			pstmt.setInt(3, pvo.getPrice1());
+			pstmt.setInt(4, pvo.getPrice2());
+			pstmt.setInt(5, pvo.getPrice3());
+			pstmt.setString(6, pvo.getContent());
+			pstmt.setString(7, pvo.getImage());
+			pstmt.setString(8, pvo.getBestyn());
+			pstmt.setString(9, pvo.getUseyn());
+			pstmt.setInt(10, pvo.getPseq());
+			pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+	}
+
 }
