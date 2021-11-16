@@ -160,13 +160,12 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 
 	public ArrayList<OrderVO> listOrder(Paging paging, String key) {
 		ArrayList<OrderVO> list = new ArrayList<OrderVO>();
-		//String sql ="select * from product order by pseq desc";
 		String sql = "select * from ("
 				+ "select * from ("
-				+ "select rownum as rn, p.* from "
-				+ "((select * from order_view where mname like '%'||?||'%' order by oseq desc) p)"
-				+ ") where rn >=?"
-				+ ") where rn <=?";
+				+ "select rownum as rn, o.* from "
+				+ "((select * from order_view where mname like '%'||?||'%' order by oseq desc, odseq desc) o)"
+				+ ") where rn >= ?"
+				+ ") where rn <= ?";
 		
 		try {
 			con = DBman.getConnection();
@@ -202,5 +201,4 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		
 		return list;
 	}
-
 }
