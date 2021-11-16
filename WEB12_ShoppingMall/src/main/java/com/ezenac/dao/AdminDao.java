@@ -256,4 +256,26 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		
 		return list;
 	}
+
+	public int getAllCount(String key) {
+		int count = 0;
+		String sql = "select count(*) as cnt from qna "
+				+ "where subject like '%'||?||'%' or content like '%'||?||'%'";
+		
+		try {
+			con = DBman.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setString(2, key);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				count = rs.getInt("cnt");
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return count;
+	}
 }

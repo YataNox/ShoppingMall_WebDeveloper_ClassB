@@ -51,7 +51,7 @@ public class AdminQnaListAction implements Action {
 			paging.setPage(page);
 			
 			AdminDao adao = AdminDao.getInstance();
-			int count = adao.getAllCount("qna", "id", key);
+			int count = adao.getAllCount(key);
 			paging.setTotalCount(count);
 			ArrayList<QnaVO> qnaList = adao.listQna(paging, key);
 			
