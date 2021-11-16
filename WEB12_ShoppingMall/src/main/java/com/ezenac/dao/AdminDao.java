@@ -163,7 +163,7 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		String sql = "select * from ("
 				+ "select * from ("
 				+ "select rownum as rn, o.* from "
-				+ "((select * from order_view where mname like '%'||?||'%' order by oseq desc, odseq desc) o)"
+				+ "((select * from order_view where mname like '%'||?||'%' order by result, odseq desc) o)"
 				+ ") where rn >= ?"
 				+ ") where rn <= ?";
 		
