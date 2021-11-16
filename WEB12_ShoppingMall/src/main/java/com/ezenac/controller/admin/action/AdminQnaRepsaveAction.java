@@ -14,7 +14,7 @@ import com.ezenac.dto.QnaVO;
 
 public class AdminQnaRepsaveAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "admin/qna/qnaDetail.jsp";
+		String url = "shop.do?command=adminQnaDetail";
 		HttpSession session = request.getSession();
 		AdminVO avo = (AdminVO)session.getAttribute("loginAdmin");
 		
@@ -28,7 +28,7 @@ public class AdminQnaRepsaveAction implements Action {
 			// 답글 저장 및 답글 상태 변경('1' -> '2')
 			adao.updateQna(qvo);
 			// 원래 보던 Qna 페이지로 이동
-			url = url + "&qseq=" + request.getParameter("pseq");
+			url = url + "&qseq=" + request.getParameter("qseq");
 		}
 		response.sendRedirect(url);
 	}
