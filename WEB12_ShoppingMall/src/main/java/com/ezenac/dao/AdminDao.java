@@ -46,21 +46,22 @@ public class AdminDao {
 		return avo;
 	}
 
-	public ArrayList<ProductVO> listProduct(Paging paging) {
+	public ArrayList<ProductVO> listProduct(Paging paging, String key) {
 		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
 		//String sql ="select * from product order by pseq desc";
 		String sql = "select * from ("
 				+ "select * from ("
 				+ "select rownum as rn, p.* from "
-				+ "((select * from product order by pseq desc) p)"
+				+ "((select * from product where name like '%'||?||'%' order by pseq desc) p)"
 				+ ") where rn >=?"
 				+ ") where rn <=?";
 		
 		try {
 			con = DBman.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, paging.getStartNum());
-			pstmt.setInt(2, paging.getEndNum());
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -134,13 +135,16 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		}
 	}
 
-	public int getAllCount(String tableName) {
+	public int getAllCount(String tableName, String fieldName, String key) {
 		int count = 0;
-		String sql = "select count(*) as cnt from " + tableName;
+		String sql = "select count(*) as cnt from " + tableName + " where "
+				+ fieldName + " like '%'||?||'%'";
+		// 필드명 like '%?%'에서 ?가 빈칸이거나 널이면, 해당 필드의 조건은 검색하지 않은 것과 같아집니다.
 		
 		try {
 			con = DBman.getConnection();
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
 			rs = pstmt.executeQuery();
 			if(rs.next())
 				count = rs.getInt("cnt");

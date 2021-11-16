@@ -25,6 +25,19 @@ public class AdminProductListAction implements Action {
 		if(id == null) {
 			url = "shop.do?command=admin";
 		}else {
+			// 검색을 위한 준비
+			String key = "";
+			if(request.getParameter("key") != null) {
+				key = request.getParameter("key");
+				session.setAttribute("key", key);
+			}else if (session.getAttribute("key") != null) {
+				key = (String)session.getAttribute("key");
+			}else {
+				session.removeAttribute("key");
+				key = "";
+			}
+			
+			// 현재 표시할 페이지에 대한 준비
 			if(request.getParameter("page") != null){
 				page = Integer.parseInt(request.getParameter("page"));
 				session.setAttribute("page", page);
@@ -39,12 +52,13 @@ public class AdminProductListAction implements Action {
 			paging.setPage(page);
 			
 			AdminDao adao = AdminDao.getInstance();
-			int count = adao.getAllCount("product");
+			int count = adao.getAllCount("product", "name", key);
 			paging.setTotalCount(count);
-			ArrayList<ProductVO> productList = adao.listProduct(paging);
+			ArrayList<ProductVO> productList = adao.listProduct(paging, key);
 			
 			request.setAttribute("productList", productList);
 			request.setAttribute("paging", paging);
+			request.setAttribute("key", key);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
