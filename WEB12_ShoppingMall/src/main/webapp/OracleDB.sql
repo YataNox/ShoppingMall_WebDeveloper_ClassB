@@ -189,6 +189,16 @@ values(qna_seq.nextVal, '테스트', '질문내용1', 'one');
 insert into qna(qseq, subject, content, id)
 values(qna_seq.nextVal, '테스트2', '질문내용2', 'two');
 
+insert into qna(qseq, subject, content, id)
+values(qna_seq.nextVal, '환불관련', '환불절차 아내부탁드려요... 배송사 선택은 어떻게 되는지도...', 'one');
+insert into qna(qseq, subject, content, id)
+values(qna_seq.nextVal, '배송관련 문의입니다.', '현재 배송상태와 예상 배송일을 답변 부탁합니다.', 'two');
+insert into qna(qseq, subject, content, id)
+values(qna_seq.nextVal, '사이즈 교환하고 싶어요.', '사이즈가 예상보다 작습니다. 교환절차를 안내부탁드려요.', 'one');
+insert into qna(qseq, subject, content, id)
+values(qna_seq.nextVal, '배송이 많이 지연되고 있습니다.', '언제 받을 수 있나요?', 'scott');
+insert into qna(qseq, subject, content, id)
+values(qna_seq.nextVal, '불량품 교환 문의', '교환 또는 환불 등의 안내가 필요합니다. 유션안내 부탁드려요.', 'scott');
 
 create or replace view cart_view
 as 
