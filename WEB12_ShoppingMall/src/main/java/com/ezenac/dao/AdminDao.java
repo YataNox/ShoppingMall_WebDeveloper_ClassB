@@ -224,7 +224,7 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		String sql = "select * from ("
 				+ "select * from ("
 				+ "select rownum as rn, q.* from "
-				+ "((select * from qna where id like '%'||?||'%' order by indate, qseq) q)"
+				+ "((select * from qna where subject like '%'||?||'%' or content like '%'||?||'%' order by qseq desc) q)"
 				+ ") where rn >= ?"
 				+ ") where rn <= ?";
 		
@@ -232,8 +232,9 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 			con = DBman.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, key);
-			pstmt.setInt(2, paging.getStartNum());
-			pstmt.setInt(3, paging.getEndNum());
+			pstmt.setString(2, key);
+			pstmt.setInt(3, paging.getStartNum());
+			pstmt.setInt(4, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

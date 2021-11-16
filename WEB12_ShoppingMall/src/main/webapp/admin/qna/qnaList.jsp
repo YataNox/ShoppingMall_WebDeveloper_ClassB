@@ -8,7 +8,7 @@
 		<table style="float: right;">
 			<tr>
 				<td>
-				주문자 이름 <input type="text" name="key" value="${key}">
+				제목 + 내용 검색 <input type="text" name="key" value="${key}">
 				<input type="button" class="btn" value="검색" onclick="go_search_qna();">
 				<input type="button" class="btn" name="btn_total" value="전체보기" onclick="go_total_qna();">
 				</td>
