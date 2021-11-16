@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezenac.dto.AdminVO;
+import com.ezenac.dto.OrderVO;
 import com.ezenac.dto.ProductVO;
 import com.ezenac.util.DBman;
 import com.ezenac.util.Paging;
@@ -155,6 +156,51 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		}
 		
 		return count;
+	}
+
+	public ArrayList<OrderVO> listOrder(Paging paging, String key) {
+		ArrayList<OrderVO> list = new ArrayList<OrderVO>();
+		//String sql ="select * from product order by pseq desc";
+		String sql = "select * from ("
+				+ "select * from ("
+				+ "select rownum as rn, p.* from "
+				+ "((select * from order_view where mname like '%'||?||'%' order by oseq desc) p)"
+				+ ") where rn >=?"
+				+ ") where rn <=?";
+		
+		try {
+			con = DBman.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				OrderVO ovo = new OrderVO();
+				ovo.setOdseq(rs.getInt("odseq"));
+				ovo.setOseq(rs.getInt("Oseq"));
+				ovo.setId(rs.getString("id"));
+				ovo.setIndate(rs.getTimestamp("indate"));
+				ovo.setPseq(rs.getInt("pseq"));
+				ovo.setQuantity(rs.getInt("quantity"));
+				ovo.setResult(rs.getString("result"));
+				ovo.setMname(rs.getString("mname"));
+				ovo.setZip_num(rs.getString("zip_num"));
+				ovo.setAddress(rs.getString("address"));
+				ovo.setPhone(rs.getString("phone"));
+				ovo.setPname(rs.getString("pname"));
+				ovo.setPrice2(rs.getInt("price2"));
+				
+				list.add(ovo);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return list;
 	}
 
 }
