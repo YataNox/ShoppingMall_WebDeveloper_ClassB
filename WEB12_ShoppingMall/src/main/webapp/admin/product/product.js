@@ -83,3 +83,19 @@ function go_total(){
 	document.frm.action = "shop.do?command=adminProductList&page=1";
 	document.frm.submit();
 }
+
+function go_search_order(){
+	if(document.frm.key.value=="")
+		return;
+		
+	var url = "shop.do?command=adminOrderList&page=1";
+	// 보던 페이지가 어떤 페이지이던간에 검색 결과의 1페이지로 가기위해 파라미터 page를 1로 전송
+	document.frm.action = url;
+	document.frm.submit();
+}
+
+function go_total_order(){
+	document.frm.key.value="";
+	document.frm.action = "shop.do?command=adminOrderList&page=1";
+	document.frm.submit();
+}
