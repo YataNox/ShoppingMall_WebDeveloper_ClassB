@@ -119,3 +119,19 @@ function go_order_save(){
 		document.frm.submit();
 	}
 }
+
+function go_search_qna(){
+	if(document.frm.key.value=="")
+		return;
+		
+	var url = "shop.do?command=adminQnaList&page=1";
+	document.frm.action = url;
+	document.frm.submit();
+}
+
+function go_total_qna(){
+	document.frm.key.value="";
+	document.frm.action = "shop.do?command=adminQnaList&page=1";
+	document.frm.submit();
+}
+
