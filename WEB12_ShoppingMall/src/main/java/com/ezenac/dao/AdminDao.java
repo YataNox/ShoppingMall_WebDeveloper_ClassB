@@ -279,4 +279,19 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 		
 		return count;
 	}
+
+	public void updateQna(QnaVO qvo) {
+		String sql = "update qna set reply=?, rep='2' where qseq=?";
+		try {
+			con = DBman.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, qvo.getReply());
+			pstmt.setInt(2, qvo.getQseq());
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+	}
 }
