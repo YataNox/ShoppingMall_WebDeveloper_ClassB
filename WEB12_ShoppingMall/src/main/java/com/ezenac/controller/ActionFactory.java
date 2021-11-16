@@ -3,6 +3,7 @@ package com.ezenac.controller;
 import com.ezenac.controller.action.Action;
 import com.ezenac.controller.admin.action.AdminAction;
 import com.ezenac.controller.admin.action.AdminLoginAction;
+import com.ezenac.controller.admin.action.AdminOrderListAction;
 import com.ezenac.controller.admin.action.AdminProductDetailAction;
 import com.ezenac.controller.admin.action.AdminProductListAction;
 import com.ezenac.controller.admin.action.AdminProductUpdateAction;
@@ -92,6 +93,7 @@ public class ActionFactory {
 		else if(command.equals("adminProductDetail")) ac = new AdminProductDetailAction();
 		else if(command.equals("adminProductUpdateForm")) ac = new AdminProductUpdateFormAction();
 		else if(command.equals("adminProductUpdate")) ac = new AdminProductUpdateAction();
+		else if(command.equals("adminOrderList")) ac = new AdminOrderListAction();
 		return ac;
 	}
 }
