@@ -135,3 +135,6 @@ function go_total_qna(){
 	document.frm.submit();
 }
 
+function go_view(qseq){
+	location.href = "shop.do?command=adminQnaDetail&qseq=" + qseq;
+}
