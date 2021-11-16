@@ -5,7 +5,7 @@
 <article>
 	<h1>Q&amp;A 게시판</h1>
 	<form name="frm" method="post">
-		<input type="hidden" name="pseq" value="${qnaVO.qseq}">
+		<input type="hidden" name="qseq" value="${qnaVO.qseq}">
 		<table id="orderList">
 			<tr>
 				<th width="20%">제목</th>
@@ -30,7 +30,7 @@
 					<tr>
 						<td colspan="2">
 							<textarea name="reply" rows="3" cols="50"></textarea>
-							<input type="button" class="btn" value="저장" onclick="go_rep()">
+							<input type="button" class="btn" value="저장" onclick="go_rep();">
 						</td>
 					</tr>
 				</table>

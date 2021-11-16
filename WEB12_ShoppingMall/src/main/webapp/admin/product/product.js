@@ -139,7 +139,7 @@ function go_view(qseq){
 	location.href = "shop.do?command=adminQnaDetail&qseq=" + qseq;
 }
 
-function go_rep(qseq){
+function go_rep(){
 	document.frm.action="shop.do?command=adminQnaRepsave";
 	document.frm.submit();
 }
