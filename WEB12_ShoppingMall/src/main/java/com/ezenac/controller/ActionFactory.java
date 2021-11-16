@@ -11,6 +11,7 @@ import com.ezenac.controller.admin.action.AdminProductUpdateAction;
 import com.ezenac.controller.admin.action.AdminProductUpdateFormAction;
 import com.ezenac.controller.admin.action.AdminProductWriteAction;
 import com.ezenac.controller.admin.action.AdminProductWriteFormAction;
+import com.ezenac.controller.admin.action.AdminQnaDetailAction;
 import com.ezenac.controller.admin.action.AdminQnaListAction;
 import com.ezenac.controller.action.CartDeleteAction;
 import com.ezenac.controller.action.CartInsertAction;
@@ -98,6 +99,7 @@ public class ActionFactory {
 		else if(command.equals("adminOrderList")) ac = new AdminOrderListAction();
 		else if(command.equals("adminOrderSave")) ac = new AdminOrderSaveAction();
 		else if(command.equals("adminQnaList")) ac = new AdminQnaListAction();
+		else if(command.equals("adminQnaDetail")) ac = new AdminQnaDetailAction();
 		return ac;
 	}
 }
