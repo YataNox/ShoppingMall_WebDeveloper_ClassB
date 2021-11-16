@@ -203,13 +203,12 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 	}
 
 	public void updateOrderResult(String odseq) {
-		String sql = "update order_detail set result = ? where odseq = ?";
+		String sql = "update order_detail set result = '2' where odseq = ?";
 		
 		try {
 			con = DBman.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "2");
-			pstmt.setInt(2, Integer.parseInt(odseq));
+			pstmt.setInt(1, Integer.parseInt(odseq));
 			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
