@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.ezenac.dto.AdminVO;
 import com.ezenac.dto.OrderVO;
 import com.ezenac.dto.ProductVO;
+import com.ezenac.dto.QnaVO;
 import com.ezenac.util.DBman;
 import com.ezenac.util.Paging;
 
@@ -216,5 +217,43 @@ String sql ="insert into product(pseq, kind, name, price1, price2, price3, "
 			DBman.close(con, pstmt, rs);
 		}
 		
+	}
+
+	public ArrayList<QnaVO> listQna(Paging paging, String key) {
+		ArrayList<QnaVO> list = new ArrayList<QnaVO>();
+		String sql = "select * from ("
+				+ "select * from ("
+				+ "select rownum as rn, q.* from "
+				+ "((select * from qna where id like '%'||?||'%' order by indate, qseq) q)"
+				+ ") where rn >= ?"
+				+ ") where rn <= ?";
+		
+		try {
+			con = DBman.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				QnaVO qvo = new QnaVO();
+				qvo.setQseq(rs.getInt("qseq"));
+				qvo.setSubject(rs.getString("subject"));
+				qvo.setContent(rs.getString("content"));
+				qvo.setReply(rs.getString("reply"));
+				qvo.setId(rs.getString("id"));
+				qvo.setRep(rs.getString("rep"));
+				qvo.setIndate(rs.getTimestamp("indate"));
+				
+				list.add(qvo);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBman.close(con, pstmt, rs);
+		}
+		
+		return list;
 	}
 }
